@@ -19,7 +19,15 @@ import { RealEstateAccountModule } from './account/account.module';
 import { RealEstateEntityModule } from './entities/entity.module';
 import * as moment from 'moment';
 // jhipster-needle-angular-add-module-import JHipster will add new module here
-import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent, ActiveMenuDirective, ErrorComponent } from './layouts';
+import {
+  JhiMainComponent,
+  NavbarComponent,
+  FooterComponent,
+  PageRibbonComponent,
+  ActiveMenuDirective,
+  ErrorComponent,
+  SidebarComponent
+} from './layouts';
 
 @NgModule({
   imports: [
@@ -40,7 +48,15 @@ import { JhiMainComponent, NavbarComponent, FooterComponent, PageRibbonComponent
     RealEstateEntityModule,
     RealEstateAppRoutingModule
   ],
-  declarations: [JhiMainComponent, NavbarComponent, ErrorComponent, PageRibbonComponent, ActiveMenuDirective, FooterComponent],
+  declarations: [
+    JhiMainComponent,
+    NavbarComponent,
+    ErrorComponent,
+    PageRibbonComponent,
+    ActiveMenuDirective,
+    FooterComponent,
+    SidebarComponent
+  ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,

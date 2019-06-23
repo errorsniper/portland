@@ -6,12 +6,14 @@ import locale from '@angular/common/locales/en';
 
 import { NgbDateAdapter } from '@ng-bootstrap/ng-bootstrap';
 import { NgbDateMomentAdapter } from 'app/shared/util/datepicker-adapter';
+import { AccountService } from '.';
 
 @NgModule({
   imports: [HttpClientModule],
   exports: [],
   declarations: [],
   providers: [
+    AccountService,
     Title,
     {
       provide: LOCALE_ID,

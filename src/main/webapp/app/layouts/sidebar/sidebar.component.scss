@@ -1,0 +1,40 @@
+.main_sidebar ul li {
+  padding-left: 10px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.main_sidebar ul li a {
+  margin-left: 10px;
+  color: #fff;
+  display: block;
+  font-size: 14px;
+}
+.main_sidebar ul li fa-icon {
+  float: left;
+  color: grey;
+  font-size: 16px;
+}
+.main_sidebar ul li:hover {
+  background: #167696;
+  > a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  > fa-icon {
+    color: #fff;
+  }
+}
+.main_sidebar ul li.active {
+  background: #0f4698;
+}
+.main_sidebar ul li.active i {
+  color: #fff;
+}
+.main_sidebar ul li.active:hover {
+  background: #167696;
+}
+.main_sidebar ul li.active:hover i {
+  color: #fff;
+}

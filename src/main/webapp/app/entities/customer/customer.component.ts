@@ -8,6 +8,7 @@ import { JhiEventManager, JhiAlertService } from 'ng-jhipster';
 import { ICustomer } from 'app/shared/model/customer.model';
 import { AccountService } from 'app/core';
 import { CustomerService } from './customer.service';
+import { GridOptions } from 'ag-grid-community';
 
 @Component({
   selector: 'jhi-customer',
@@ -18,6 +19,39 @@ export class CustomerComponent implements OnInit, OnDestroy {
   currentAccount: any;
   eventSubscriber: Subscription;
   currentSearch: string;
+  gridOptions: GridOptions;
+  columnDefs = [
+    {
+      headerName: 'Id',
+      field: 'id',
+      width: 50
+    },
+    {
+      headerName: 'Mobile Number',
+      field: 'name',
+      width: 150
+    },
+    {
+      headerName: 'Address',
+      field: 'address',
+      width: 200
+    },
+    {
+      headerName: 'Email',
+      field: 'email',
+      width: 150
+    },
+    {
+      headerName: 'Location',
+      field: 'location',
+      width: 150
+    },
+    {
+      headerName: 'Purpose Of Visit',
+      field: 'purposeOfVisit',
+      width: 200
+    }
+  ];
 
   constructor(
     protected customerService: CustomerService,
@@ -28,6 +62,13 @@ export class CustomerComponent implements OnInit, OnDestroy {
   ) {
     this.currentSearch =
       this.activatedRoute.snapshot && this.activatedRoute.snapshot.params['search'] ? this.activatedRoute.snapshot.params['search'] : '';
+    this.gridOptions = <GridOptions>{};
+    this.gridOptions.rowHeight = 40;
+    this.gridOptions.headerHeight = 40;
+    this.gridOptions.suppressHorizontalScroll = true;
+    this.gridOptions.defaultColDef = {
+      sortable: true
+    };
   }
 
   loadAll() {
@@ -93,5 +134,9 @@ export class CustomerComponent implements OnInit, OnDestroy {
 
   protected onError(errorMessage: string) {
     this.jhiAlertService.error(errorMessage, null, null);
+  }
+
+  public onGridReady(event) {
+    this.gridOptions.api.sizeColumnsToFit();
   }
 }

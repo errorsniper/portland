@@ -1,11 +1,18 @@
-<jhi-page-ribbon></jhi-page-ribbon>
+<!-- <jhi-page-ribbon></jhi-page-ribbon> -->
 <div>
     <router-outlet name="navbar"></router-outlet>
 </div>
-<div class="container-fluid">
-    <div class="card jh-card">
+<div class="app" [class.d-flex]="isAuthenticated">
+    <ng-container *ngIf="isAuthenticated">
+            <div class="sidebar">
+                    <jhi-sidebar></jhi-sidebar>
+            </div>
+    </ng-container>
+    <main class="card jh-card">
         <router-outlet></router-outlet>
         <router-outlet name="popup"></router-outlet>
-    </div>
-    <jhi-footer></jhi-footer>
+    </main>
+    <!-- <div class="footer">
+        <jhi-footer></jhi-footer>
+    </div> -->
 </div>

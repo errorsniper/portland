@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRouteSnapshot, NavigationEnd, NavigationError } from '@angular/router';
-
-import { JhiLanguageHelper } from 'app/core';
+import { ActivatedRouteSnapshot, NavigationEnd, NavigationError, Router } from '@angular/router';
+import { JhiLanguageHelper, AccountService } from 'app/core';
 
 @Component({
   selector: 'jhi-main',
-  templateUrl: './main.component.html'
+  templateUrl: './main.component.html',
+  styleUrls: ['./main.component.scss']
 })
 export class JhiMainComponent implements OnInit {
-  constructor(private jhiLanguageHelper: JhiLanguageHelper, private router: Router) {}
+  constructor(private jhiLanguageHelper: JhiLanguageHelper, private router: Router, private accountService: AccountService) {}
 
   private getPageTitle(routeSnapshot: ActivatedRouteSnapshot) {
     let title: string = routeSnapshot.data && routeSnapshot.data['pageTitle'] ? routeSnapshot.data['pageTitle'] : 'realEstateApp';
@@ -27,5 +27,9 @@ export class JhiMainComponent implements OnInit {
         this.router.navigate(['/404']);
       }
     });
+  }
+
+  public get isAuthenticated(): boolean {
+    return this.accountService.isAuthenticated();
   }
 }
