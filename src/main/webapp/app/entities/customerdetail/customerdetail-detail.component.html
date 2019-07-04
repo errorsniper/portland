@@ -1,0 +1,63 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="customerdetail">
+            <h2><span jhiTranslate="realEstateApp.customerdetail.detail.title">Customerdetail</span> {{customerdetail.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="realEstateApp.customerdetail.serviceType">Service Type</span></dt>
+                <dd>
+                    <span>{{customerdetail.serviceType}}</span>
+                </dd>
+                <dt><span jhiTranslate="realEstateApp.customerdetail.sizeOfPlot">Size Of Plot</span></dt>
+                <dd>
+                    <span>{{customerdetail.sizeOfPlot}}</span>
+                </dd>
+                <dt><span jhiTranslate="realEstateApp.customerdetail.constructionType">Construction Type</span></dt>
+                <dd>
+                    <span>{{customerdetail.constructionType}}</span>
+                </dd>
+                <dt><span jhiTranslate="realEstateApp.customerdetail.buildingType">Building Type</span></dt>
+                <dd>
+                    <span>{{customerdetail.buildingType}}</span>
+                </dd>
+                <dt><span jhiTranslate="realEstateApp.customerdetail.soilType">Soil Type</span></dt>
+                <dd>
+                    <span>{{customerdetail.soilType}}</span>
+                </dd>
+                <dt><span jhiTranslate="realEstateApp.customerdetail.noOfRoomsRequired">No Of Rooms Required</span></dt>
+                <dd>
+                    <span>{{customerdetail.noOfRoomsRequired}}</span>
+                </dd>
+                <dt><span jhiTranslate="realEstateApp.customerdetail.expectedEndDate">Expected End Date</span></dt>
+                <dd>
+                    <span>{{customerdetail.expectedEndDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="realEstateApp.customerdetail.budGet">Bud Get</span></dt>
+                <dd>
+                    <span>{{customerdetail.budGet}}</span>
+                </dd>
+                <dt><span jhiTranslate="realEstateApp.customerdetail.createdDate">Created Date</span></dt>
+                <dd>
+                    <span>{{customerdetail.createdDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="realEstateApp.customerdetail.createdBy">Created By</span></dt>
+                <dd>
+                    <span>{{customerdetail.createdBy}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/customerdetail', customerdetail.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

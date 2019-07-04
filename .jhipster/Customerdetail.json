@@ -1,0 +1,58 @@
+{
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "serviceType",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "sizeOfPlot",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "constructionType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "buildingType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "soilType",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "noOfRoomsRequired",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "expectedEndDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "budGet",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "createdDate",
+            "fieldType": "ZonedDateTime"
+        },
+        {
+            "fieldName": "createdBy",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20190704163131",
+    "dto": "no",
+    "searchEngine": "elasticsearch",
+    "service": "serviceImpl",
+    "entityTableName": "customerdetail",
+    "databaseType": "sql",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

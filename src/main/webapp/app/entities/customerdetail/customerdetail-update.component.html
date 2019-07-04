@@ -1,0 +1,82 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-customerdetail-heading" jhiTranslate="realEstateApp.customerdetail.home.createOrEditLabel">Create or edit a Customerdetail</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!customerdetail.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="realEstateApp.customerdetail.serviceType" for="field_serviceType">Service Type</label>
+                    <input type="text" class="form-control" name="serviceType" id="field_serviceType"
+                           formControlName="serviceType"/>
+                    <div *ngIf="editForm.get('serviceType').invalid && (editForm.get('serviceType').dirty || editForm.get('serviceType').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('serviceType').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="realEstateApp.customerdetail.sizeOfPlot" for="field_sizeOfPlot">Size Of Plot</label>
+                    <input type="text" class="form-control" name="sizeOfPlot" id="field_sizeOfPlot"
+                           formControlName="sizeOfPlot"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="realEstateApp.customerdetail.constructionType" for="field_constructionType">Construction Type</label>
+                    <input type="text" class="form-control" name="constructionType" id="field_constructionType"
+                           formControlName="constructionType"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="realEstateApp.customerdetail.buildingType" for="field_buildingType">Building Type</label>
+                    <input type="text" class="form-control" name="buildingType" id="field_buildingType"
+                           formControlName="buildingType"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="realEstateApp.customerdetail.soilType" for="field_soilType">Soil Type</label>
+                    <input type="text" class="form-control" name="soilType" id="field_soilType"
+                           formControlName="soilType"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="realEstateApp.customerdetail.noOfRoomsRequired" for="field_noOfRoomsRequired">No Of Rooms Required</label>
+                    <input type="text" class="form-control" name="noOfRoomsRequired" id="field_noOfRoomsRequired"
+                           formControlName="noOfRoomsRequired"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="realEstateApp.customerdetail.expectedEndDate" for="field_expectedEndDate">Expected End Date</label>
+                    <div class="d-flex">
+                        <input id="field_expectedEndDate" type="datetime-local" class="form-control" name="expectedEndDate" formControlName="expectedEndDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="realEstateApp.customerdetail.budGet" for="field_budGet">Bud Get</label>
+                    <input type="text" class="form-control" name="budGet" id="field_budGet"
+                           formControlName="budGet"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="realEstateApp.customerdetail.createdDate" for="field_createdDate">Created Date</label>
+                    <div class="d-flex">
+                        <input id="field_createdDate" type="datetime-local" class="form-control" name="createdDate" formControlName="createdDate" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="realEstateApp.customerdetail.createdBy" for="field_createdBy">Created By</label>
+                    <input type="text" class="form-control" name="createdBy" id="field_createdBy"
+                           formControlName="createdBy"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
